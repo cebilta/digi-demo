@@ -1,5 +1,6 @@
 Send an Post API request into localhost:8080/pull-uri with accept as application/xml and request body contain xml below
 
+```xml
 <DocType>pdf</DocType> //Document type
 <DigiLockerId>3434234</DigiLockerId > //Unique 36 character DigiLocker Id
 <UID>234324324</UID> //Aadhaar number (Optional)
@@ -10,10 +11,12 @@ Send an Post API request into localhost:8080/pull-uri with accept as application
 <USRDOB>01/01/2023</USRDOB> //User defined field
 </DocDetails>
 </PullURIRequest>
+.```
 
 
 Recieved output from the response body as below xml file
 
+```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <PullURIResponse xmlns:ns2="http://tempuri.org/">
     <ResponseStatus Status="1" ts="1678875640887" txn="8710">1</ResponseStatus>
@@ -29,4 +32,4 @@ Recieved output from the response body as below xml file
         <DocContent>Ym1WM0lHUmxiVzhnWm1sc1pTQm1iM0lnZEdobElHVnRjR3h2ZVdWbElHUmhkR0VnYzJWMENnPT0=</DocContent>
     </DocDetails>
 </PullURIResponse>
-
+.```
