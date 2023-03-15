@@ -3,24 +3,23 @@ Send an Post API request into localhost:8080/pull-uri with accept as application
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PullURIRequest xmlns:ns2="http://tempuri.org/" ver="1.0" ts="YYYY-MMDDThh:mm:ss+/-nn:nn" txn="1234" orgId="" format="xml/pdf/both">
-<DocDetails>
- <DocType>pdf</DocType> //Document type
- <DigiLockerId>3434234</DigiLockerId > //Unique 36 character DigiLocker Id
- <UID>234324324</UID> //Aadhaar number (Optional)
- <FullName> Cebil</FullName> //Name as on Aadhaar (Optional)
- <DOB>01/01/2023</DOB> //Date of birth as on Aadhaar (Optional)
- <Photo>sfsdfsfsf</Photo> //Base 64 encoded JPEG photograph as on Aadhaar
+    <DocDetails>
+        <DocType>pdf</DocType> //Document type
+        <DigiLockerId>3434234</DigiLockerId > //Unique 36 character DigiLocker Id
+        <UID>234324324</UID> //Aadhaar number (Optional)
+        <FullName> Cebil</FullName> //Name as on Aadhaar (Optional)
+        <DOB>01/01/2023</DOB> //Date of birth as on Aadhaar (Optional)
+        <Photo>sfsdfsfsf</Photo> //Base 64 encoded JPEG photograph as on Aadhaar
 (Optional)
- <PPONO>232424</PPONO> //User defined field
- <USRDOB>01/01/2023</USRDOB> //User defined field
-</DocDetails>
+        <PPONO>232424</PPONO> //User defined field
+        <USRDOB>01/01/2023</USRDOB> //User defined field
+    </DocDetails>
 </PullURIRequest>
-.```
 
 
 Recieved output from the response body as below xml file
 
-```xml
+
 <?xml version='1.0' encoding='UTF-8'?>
 <PullURIResponse xmlns:ns2="http://tempuri.org/">
     <ResponseStatus Status="1" ts="1678875640887" txn="8710">1</ResponseStatus>
