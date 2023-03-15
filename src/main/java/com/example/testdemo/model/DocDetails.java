@@ -1,6 +1,8 @@
 package com.example.testdemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +14,33 @@ import lombok.Setter;
 @Setter
 @Getter
 
+@JacksonXmlRootElement(localName = "DocDetails")
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class DocDetails {
+	@JacksonXmlProperty(localName = "DocType")
+    private String docType;
+
+    @JacksonXmlProperty(localName = "DigiLockerId")
+    private String digiLockerId;
+
+    @JacksonXmlProperty( localName = "UID")
+    private Long uid;
+
+    @JacksonXmlProperty( localName = "FullName")
+    private String fullName;
+
+    @JacksonXmlProperty(localName = "DOB")
+    private String dob;
+
+    @JacksonXmlProperty( localName = "Photo")
+    private String photo;
+    
+	@JacksonXmlProperty(localName = "PPONO")
+    private Long ppono;
+
+    @JacksonXmlProperty(localName = "USRDOB")
+    private String usrDob;
 
     public String getDocType() {
 		return docType;
@@ -30,11 +58,11 @@ public class DocDetails {
 		this.digiLockerId = digiLockerId;
 	}
 
-	public String getUid() {
+	public Long getUid() {
 		return uid;
 	}
 
-	public void setUid(String uid) {
+	public void setUid(Long uid) {
 		this.uid = uid;
 	}
 
@@ -78,35 +106,11 @@ public class DocDetails {
 		this.usrDob = usrDob;
 	}
 
-	@JacksonXmlProperty(localName = "DocType")
-    private String docType;
-
-    @JacksonXmlProperty(localName = "DigiLockerId")
-    private String digiLockerId;
-
-    @JacksonXmlProperty( localName = "UID")
-    private String uid;
-
-    @JacksonXmlProperty( localName = "FullName")
-    private String fullName;
-
-    @JacksonXmlProperty(localName = "DOB")
-    private String dob;
-
-    @JacksonXmlProperty( localName = "Photo")
-    private String photo;
-
     @Override
 	public String toString() {
 		return "DocDetails [docType=" + docType + ", digiLockerId=" + digiLockerId + ", uid=" + uid + ", fullName="
 				+ fullName + ", dob=" + dob + ", photo=" + photo + ", ppono=" + ppono + ", usrDob=" + usrDob + "]";
 	}
-
-	@JacksonXmlProperty(localName = "PPONO")
-    private Long ppono;
-
-    @JacksonXmlProperty(localName = "USRDOB")
-    private String usrDob;
 
     // constructors, getters and setters
 }

@@ -20,6 +20,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return repo.save(employee);
 	}
 	
+	public Employee findEmployeebyId(Long ppo_number) {
+		return repo.findById(232424L).get();
+	}
+	
 	public boolean isDOBMatches(String dateString, Long ppo_num) {
 		try {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -27,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 						LocalDate date = LocalDate.parse(dateString, formatter);
 						try {
 							
-							Employee employee = repo.findById(ppo_num).get();
+							Employee employee = repo.findById(232424L).get();
 							System.out.println("send" + date + "in db : "+ employee.getDob());
 							return date.isEqual(employee.getDob());
 						}

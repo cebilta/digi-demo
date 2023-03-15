@@ -1,6 +1,7 @@
 package com.example.testdemo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -14,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@JsonRootName("PullURIRequest")
+
 @JacksonXmlRootElement(localName = "PullURIRequest")
 public class PullURIRequest {
 
@@ -25,17 +26,26 @@ public class PullURIRequest {
 	}
 
 
-	@JacksonXmlProperty(isAttribute = true, namespace = "ns2")
-	public final String x = "hello";
+	@JacksonXmlProperty(isAttribute = true, localName = "xmlns:ns2")
+	public final String x = "http://helloworld.com/";
 	
 	@JacksonXmlProperty(isAttribute = true, localName = "ver")
     private String version;
 
     @JacksonXmlProperty(isAttribute = true, localName = "ts")
-    private Date timestamp;
+    private String timestamp;
 
     @JacksonXmlProperty(isAttribute = true, localName = "txn")
     private String transactionId;
+    
+	@JacksonXmlProperty(isAttribute = true, localName = "orgId")
+    private String orgId;
+
+    @JacksonXmlProperty(isAttribute = true, localName = "format")
+    private String format;
+
+    @JacksonXmlProperty(localName = "DocDetails")
+    private DocDetails docDetails;
 
     public String getVersion() {
 		return version;
@@ -47,12 +57,12 @@ public class PullURIRequest {
 	}
 
 
-	public Date getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
 
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 
@@ -96,15 +106,6 @@ public class PullURIRequest {
 		this.docDetails = docDetails;
 	}
 
-
-	@JacksonXmlProperty(isAttribute = true, localName = "orgId")
-    private String orgId;
-
-    @JacksonXmlProperty(isAttribute = true, localName = "format")
-    private String format;
-
-    
-    private DocDetails docDetails;
 
     // constructors, getters and setters
 }
