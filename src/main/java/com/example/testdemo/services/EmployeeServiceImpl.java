@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 	
 	public Employee findEmployeebyId(Long ppo_number) {
-		return repo.findById(232424L).get();
+		return repo.findById(ppo_number).get();
 	}
 	
 	public boolean isDOBMatches(String dateString, Long ppo_num) {
@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 						LocalDate date = LocalDate.parse(dateString, formatter);
 						try {
 							
-							Employee employee = repo.findById(232424L).get();
+							Employee employee = repo.findById(ppo_num).get();
 							System.out.println("send" + date + "in db : "+ employee.getDob());
 							return date.isEqual(employee.getDob());
 						}

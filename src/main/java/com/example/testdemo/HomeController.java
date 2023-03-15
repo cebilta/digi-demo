@@ -156,6 +156,7 @@ public class HomeController {
 		try {
 			PullURIRequest pull_URI   = xmlMapper.readValue(pullreq, PullURIRequest.class);
 			Long           ppo_number = pull_URI.getDocDetails().getPpono(); 
+			System.out.println("ppo number recieved from request body" + ppo_number);
 			if (isAccountExist(ppo_number)) {
 				System.out.println("account exist for ppo");
 				Employee curremp = empservice.findEmployeebyId(ppo_number);
